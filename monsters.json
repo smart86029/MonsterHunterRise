@@ -1,0 +1,97 @@
+[
+  {
+    "name": "泡狐龍",
+    "description": "",
+    "icon": "https://static.wikia.nocookie.net/monsterhunter/images/2/20/MHRise-Mizutsune_Icon.png/revision/latest/scale-to-width-down/62?cb=20210110013655",
+    "image": "https://www.monsterhunter.com/rise/assets/images/monster/modal/mizutsune.png",
+    "ailments": {
+      "poison": 2,
+      "sleep": 2,
+      "paralysis": 1,
+      "stun": 1,
+      "pitfallTrap": 1,
+      "shockTrap": 1,
+      "flashBomb": 1,
+      "sonicBomb": 1
+    },
+    "parts": [
+      {
+        "name": "頭部",
+        "cut": 63,
+        "blunt": 63,
+        "ammo": 45,
+        "fire": 5,
+        "water": 0,
+        "thunder": 10,
+        "ice": 5,
+        "dragon": 8
+      },
+      {
+        "name": "首",
+        "cut": 43,
+        "blunt": 43,
+        "ammo": 40,
+        "fire": 8,
+        "water": 0,
+        "thunder": 10,
+        "ice": 5,
+        "dragon": 5
+      },
+      {
+        "name": "胴",
+        "cut": 25,
+        "blunt": 25,
+        "ammo": 20,
+        "fire": 5,
+        "water": 0,
+        "thunder": 10,
+        "ice": 5,
+        "dragon": 5
+      },
+      {
+        "name": "背ビレ",
+        "cut": 43,
+        "blunt": 43,
+        "ammo": 45,
+        "fire": 8,
+        "water": 0,
+        "thunder": 15,
+        "ice": 5,
+        "dragon": 10
+      },
+      {
+        "name": "前脚",
+        "cut": 21,
+        "blunt": 21,
+        "ammo": 10,
+        "fire": 5,
+        "water": 0,
+        "thunder": 35,
+        "ice": 15,
+        "dragon": 30
+      },
+      {
+        "name": "後脚",
+        "cut": 38,
+        "blunt": 38,
+        "ammo": 25,
+        "fire": 5,
+        "water": 0,
+        "thunder": 10,
+        "ice": 5,
+        "dragon": 5
+      },
+      {
+        "name": "尻尾",
+        "cut": 43,
+        "blunt": 33,
+        "ammo": 40,
+        "fire": 5,
+        "water": 0,
+        "thunder": 5,
+        "ice": 10,
+        "dragon": 5
+      }
+    ]
+  }
+]

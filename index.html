@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Monster Hunter Rise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <header class="navbar">
+        <section class="navbar-section">
+          <a href="#" class="navbar-brand mr-2">Monster Hunter Rise</a>
+        </section>
+      </header>
+      <main>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">首頁</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#">魔物列表</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#">{{ monster.name }}</a>
+          </li>
+        </ul>
+        <div class="container">
+          <div class="columns">
+            <div class="column col-8 col-md-12">
+              <h2>{{ monster.name }}</h2>
+              <h3>狀態異常</h3>
+              <table v-if="monster.ailments" class="table">
+                <thead>
+                  <tr>
+                    <th>毒</th>
+                    <th>睡眠</th>
+                    <th>麻痺</th>
+                    <th>昏厥</th>
+                    <th>落穴</th>
+                    <th>麻痺陷阱</th>
+                    <th>閃光彈</th>
+                    <th>音爆彈</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ monster.ailments.poison }}</td>
+                    <td>{{ monster.ailments.sleep }}</td>
+                    <td>{{ monster.ailments.paralysis }}</td>
+                    <td>{{ monster.ailments.stun }}</td>
+                    <td>{{ monster.ailments.pitfallTrap }}</td>
+                    <td>{{ monster.ailments.shockTrap }}</td>
+                    <td>{{ monster.ailments.flashBomb }}</td>
+                    <td>{{ monster.ailments.sonicBomb }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <h3>肉質</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>部位</th>
+                    <th>斬</th>
+                    <th>打</th>
+                    <th>彈</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>雷</th>
+                    <th>冰</th>
+                    <th>龍</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="part in monster.parts">
+                    <th>{{ part.name }}</th>
+                    <th>{{ part.cut }}</th>
+                    <th>{{ part.blunt }}</th>
+                    <th>{{ part.ammo }}</th>
+                    <th>{{ part.fire }}</th>
+                    <th>{{ part.water }}</th>
+                    <th>{{ part.thunder }}</th>
+                    <th>{{ part.ice }}</th>
+                    <th>{{ part.dragon }}</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="column col-4 col-md-12">
+              <img
+                v-bind:src="monster.image"
+                class="img-responsive img-fit-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      const app = Vue.createApp({
+        el: "#app",
+        data() {
+          return {
+            monster: {},
+          };
+        },
+        created() {
+          fetch("monsters.json")
+            .then((res) => {
+              if (!res.ok) {
+                throw new Error(res.statusText);
+              }
+              return res.json();
+            })
+            .then((monsters) => {
+              this.monster = monsters[0];
+            });
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
